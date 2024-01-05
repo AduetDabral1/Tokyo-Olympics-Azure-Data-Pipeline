@@ -1,0 +1,78 @@
+-- Query 1: - Avg count of participants across all disciplines
+select Top 10 Discipline, sum(Total) as Participants
+from entriesGender
+group by Discipline
+order by sum(Total) DESC;
+
+
+--Query 2: - Most Bronze,silver and gold
+select concat('Most Gold- ',Team_Country) as Country_With_Most_Medals, Gold as Medals
+from medals
+where Gold = (select max(Gold) from medals)
+union all
+select concat('Most Silver- ',Team_Country) as Country_With_Most_Medals, Silver as Medals
+from medals
+where Silver = (select max(Silver) from medals)
+union all
+select concat('Most Bronze- ',Team_Country) as Country_With_Most_Medals, Bronze as Medals
+from medals
+where Bronze = (select max(Bronze) from medals)
+
+
+-- Query 3- Particpants at across countries (Top 15)
+select TOP 15 * from (
+select count(PersonName) as Count_of_Players, Country
+from athletes
+group by Country) a
+order by a.Count_of_Players desc
+
+
+-- Query 4- Coaches produced by the countries
+select TOP 10 * from (
+select count(Name) as Count_of_Coaches, Country from coaches
+group by Country) a
+order by a.Count_of_Coaches desc
+
+
+-- Query 5- Coaches vs Player Ratio
+select TOP 10 coach_table.Country, Count_of_Players, Count_of_Coaches, 
+round(Count_of_Players/Count_of_Coaches,2) as Player_Coach_Ratio
+from (
+        select * from (select count(PersonName) as Count_of_Players, Country
+                       from athletes group by Country) a
+        ) player_table
+join (
+        select * from (select count(Name) as Count_of_Coaches, Country from coaches
+        group by Country) a
+        ) coach_table
+ON 
+player_table.Country = coach_table.Country
+ORDER BY Count_of_Players desc;
+
+
+-- Query 6- Sports with Highest female participation
+SELECT TOP 10 Discipline,
+    SUM(Female) AS Count_of_Female,
+    SUM(Total) AS Count_of_Total,
+    100 * (ROUND(SUM(Female) * 1.0/ SUM(Total), 4)) AS Female_Participation
+FROM entriesGender
+GROUP BY Discipline
+ORDER BY Female_Participation DESC;
+
+
+-- Query 7- Sports with Highest male participation
+SELECT TOP 10 Discipline,
+    SUM(Male) AS Count_of_Male,
+    SUM(Total) AS Count_of_Total,
+    100 * (ROUND(SUM(Male) * 1.0/ SUM(Total), 4)) AS Male_Participation
+FROM entriesGender
+GROUP BY Discipline
+ORDER BY Male_Participation DESC;
+
+
+-- Query 8s- Teams vs Disciplines
+select TOP 10 * from (
+        select TeamName, count(distinct Discipline) as Count_of_Disciplines
+        from teams group by TeamName
+        ) a
+order by a.Count_of_Disciplines desc;
