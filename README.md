@@ -27,10 +27,25 @@ The dataset contains the details of the Athletes, Coaches, and Teams participati
 <h2>Analysis</h2>
 The pipeline enables analysis of the Tokyo Olympics data using complex SQL queries within Synapse Analytics.
 Examples of analysis questions include:
-1. Identifying top-performing countries and athletes across different disciplines.
-2. Most Bronze, silver, and gold-winning nations.
-3. Coaches vs Player Ratio.
-4. Sports with Highest female participation.
+<ol>
+<li>Average count of participants across all disciplines.
+  
+[![Query1.jpg](https://i.postimg.cc/HsPTcRMr/Query1.jpg)](https://postimg.cc/tYPK8r2b)
+</li>
+<li>Most Bronze, silver, and gold-winning nations.
+
+[![Query2.jpg](https://i.postimg.cc/44PfZmNb/Query2.jpg)](https://postimg.cc/CdZTsM8z)
+</li>
+<li>Coaches vs Player Ratio.
+
+[![Query5.jpg](https://i.postimg.cc/7ZFDXzmD/Query5.jpg)](https://postimg.cc/rDNvwKBY)
+</li>
+<li>Sports with Highest female participation.
+
+[![Query6.jpg](https://i.postimg.cc/kg6qxsNf/Query6.jpg)](https://postimg.cc/rDkBTSPr)
+</li>
+
+</ol>
 
 <h2>Benefits</h2>
 <ul>
