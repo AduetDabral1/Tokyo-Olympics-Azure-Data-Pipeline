@@ -4,7 +4,7 @@
 Utilizing a combination of Azure Data Factory, Databricks, Data Lake Storage, and Synapse Analytics, the pipeline ingests, transforms, stores, and analyzes data sourced from Kaggle.</p>
 
 <h2>Data Source</h2>
-The dataset used in this project is obtained from Kaggle (<a href="https://www.kaggle.com/datasets/arjunprasadsarkhel/2021-olympics-in-tokyo?resource=download">).
+The dataset used in this project is obtained from Kaggle (<a href="https://www.kaggle.com/datasets/arjunprasadsarkhel/2021-olympics-in-tokyo?resource=download">Kaggle Dataset</a>).
 This contains the details of over 11,000 athletes, with 47 disciplines, along with 743 Teams taking part in the 2021(2020) Tokyo Olympics.
 The dataset contains the details of the Athletes, Coaches, and Teams participating as well as the Entries by gender. It contains their names, countries represented, disciplines, gender of competitors, and names of the coaches.
 
