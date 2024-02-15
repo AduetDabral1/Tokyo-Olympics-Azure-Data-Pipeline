@@ -70,9 +70,14 @@ GROUP BY Discipline
 ORDER BY Male_Participation DESC;
 
 
--- Query 8s- Teams vs Disciplines
+-- Query 8a- Teams vs Disciplines
 select TOP 10 * from (
         select TeamName, count(distinct Discipline) as Count_of_Disciplines
         from teams group by TeamName
         ) a
 order by a.Count_of_Disciplines desc;
+
+
+-- Query 8b -  Teams vs Disciplines
+Graphical visualization of 8a
+
